@@ -367,8 +367,8 @@ open class _FieldCell<T> : Cell<T>, UITextFieldDelegate, TextFieldCell where T: 
         formViewController()?.beginEditing(of: self)
         formViewController()?.textInputDidBeginEditing(textField, cell: self)
         if let fieldRowConformance = row as? FormatterConformance, let _ = fieldRowConformance.formatter, fieldRowConformance.useFormatterOnDidBeginEditing ?? fieldRowConformance.useFormatterDuringInput {
-            textFieldDidChange(textField)
             textField.text = displayValue(useFormatter: true)
+            textFieldDidChange(textField)
         } else {
             textField.text = displayValue(useFormatter: false)
         }
